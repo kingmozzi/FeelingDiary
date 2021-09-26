@@ -25,7 +25,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
-	<dict>
+	<!-- <dict>
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>localhost</key>
@@ -34,8 +34,8 @@
 				<true/>
 			</dict>
 		</dict>
-	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
+	</dict> -->
+	<!-- <key>NSLocationWhenInUseUsageDescription</key -->>
 	<string></string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

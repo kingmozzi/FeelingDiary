@@ -421,13 +421,9 @@ const App: () => Node = () => {
   function detailScreen({navigation, route}){
 
     const [value, onChangeText] = React.useState('');
-    
-    const token = getData('userData').then((value) => {
-      return value;
-    });
-    //token output [object Object]
-    const token2 = token.userId;
-    //token2 output undefined
+
+    const [address, setAddress] = React.useState('');
+
     var year = new Date().getFullYear();
     var month = new Date().getMonth()+1;
     var date = new Date().getDate();
@@ -436,7 +432,11 @@ const App: () => Node = () => {
 
     const today =  year+ '-' + month + '-' + date + ' ' + hour + '시 ' + min + '분'
 
-    const address =  '/users/' +  token +'/diary/' + today
+    getData('userData').then((value) => {setAddress('/users/' + value.substring(11,value.length -2)+ '/diary/' + today)});
+    
+    
+
+    //const address =  '/users/' +  token +'/diary/' + today
 
     //const address = items
     return(
