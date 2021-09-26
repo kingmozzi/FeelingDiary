@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "129094047410",
+    "firebase_url": "https://howdoyoufee-default-rtdb.firebaseio.com",
+    "project_id": "howdoyoufee",
+    "storage_bucket": "howdoyoufee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129094047410:android:72b5c7385393540f7e1bab",
+        "android_client_info": {
+          "package_name": "com.feelingdiary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129094047410-kadgf70hvod2j61vlghtdggc4rv86a4s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4ARnv7h6QZ14L73AnribpKU7G5qs6gVY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129094047410-kadgf70hvod2j61vlghtdggc4rv86a4s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
