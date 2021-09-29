@@ -36,6 +36,8 @@ import {
   props,
   TextInput,
   ImageBackground,
+  TouchableWithoutFeedback,
+  Keyboard,
   
 } from 'react-native';
 
@@ -124,61 +126,64 @@ const App: () => Node = () => {
     const [intensity, setIntensity] = React.useState('')
     
     return(
-      <View style={{flex:1,alignItems: 'stretch' }}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={{flex:1,alignItems: 'stretch' }}>
 
-        <View style={styles.login}>
-          <Text style={{fontSize:20}}>닉네임 설정하기</Text>
-          <TextInput 
-              style={styles.detailBox}
-              onChangeText={nickname => setNickname(nickname)}
-              placeholder="닉네임"
-          />
-        </View>
         
-        <View style={styles.login}>
-          <Text style={{fontSize:20}} >MBTI</Text>
-          <TextInput 
-              style={styles.detailBox}
-              onChangeText={mbti => setMbti(mbti)}
-              placeholder="MBTI"
-          />
-        </View>
+          <View style={styles.login}>
+            <Text style={{fontSize:20}}>닉네임 설정하기</Text>
+            <TextInput 
+                style={styles.detailBox}
+                onChangeText={nickname => setNickname(nickname)}
+                placeholder="닉네임"
+            />
+          </View>
+          
+          <View style={styles.login}>
+            <Text style={{fontSize:20}} >MBTI</Text>
+            <TextInput 
+                style={styles.detailBox}
+                onChangeText={mbti => setMbti(mbti)}
+                placeholder="MBTI"
+            />
+          </View>
+          
+          <View style={styles.login}>
+            <Text style={{fontSize:20}}>성별</Text>
+            <TextInput 
+                style={styles.detailBox}
+                onChangeText={sex => setSex(sex)}
+                placeholder="성별"
+            />
+          </View>
+
+          <View style={styles.login}>
+            <Text style={{fontSize:20}}>나이</Text>
+            <TextInput 
+                style={styles.detailBox}
+                onChangeText={age => setAge(age)}
+                placeholder="나이"
+            />
+          </View>
+
+          <View style={styles.login}>
+            <Text style={{fontSize:20}}>주 근무시간</Text>
+            <TextInput 
+                style={styles.detailBox}
+                onChangeText={workingHours => setWorkingHours(workingHours)}
+                placeholder="주 근무시간"
+            />
+          </View>
+
+          <View style={styles.login}>
+            <Text style={{fontSize:20}}>근무 강도(상중하)</Text>
+            <TextInput 
+                style={styles.detailBox}
+                onChangeText={intensity => setIntensity(intensity)}
+                placeholder="근무강도(상, 중, 하)"
+            />
+          </View>
         
-        <View style={styles.login}>
-          <Text style={{fontSize:20}}>성별</Text>
-          <TextInput 
-              style={styles.detailBox}
-              onChangeText={sex => setSex(sex)}
-              placeholder="성별"
-          />
-        </View>
-
-        <View style={styles.login}>
-          <Text style={{fontSize:20}}>나이</Text>
-          <TextInput 
-              style={styles.detailBox}
-              onChangeText={age => setAge(age)}
-              placeholder="나이"
-          />
-        </View>
-
-        <View style={styles.login}>
-          <Text style={{fontSize:20}}>주 근무시간</Text>
-          <TextInput 
-              style={styles.detailBox}
-              onChangeText={workingHours => setWorkingHours(workingHours)}
-              placeholder="주 근무시간"
-          />
-        </View>
-
-        <View style={styles.login}>
-          <Text style={{fontSize:20}}>근무 강도(상중하)</Text>
-          <TextInput 
-              style={styles.detailBox}
-              onChangeText={intensity => setIntensity(intensity)}
-              placeholder="근무강도(상, 중, 하)"
-          />
-        </View>
         
         <View style={styles.login}>
           <Button title="제출" onPress={()=>{            
@@ -200,7 +205,8 @@ const App: () => Node = () => {
           />
         </View>
         
-      </View>
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
   
@@ -440,44 +446,48 @@ const App: () => Node = () => {
 
     //const address = items
     return(
-      <View style={{flexDirection:'column', alignItems:'stretch', flex:1, backgroundColor:'white', justifyContent:'center'}}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={{flexDirection:'column', alignItems:'stretch', flex:1, backgroundColor:'white', justifyContent:'center'}}>
         {/* <Text>{route.params.post}{route.params.present}{route.params.ing}</Text> */}
 
-        <View style={styles.detailView}>
-          <Text style={{fontWeight:'bold', fontSize:40}}>왜 그런 기분이 들어?</Text>
-          <UselessTextInput
-            multiline  
-            numberOfLines={4}
-            onChangeText={text => onChangeText(text)}
-            value={value}
-            style={{padding: 10, margin:10, color:'white'}}
-            backgroundColor={'lightgray'}
-            placeholder={'구체적인 활동을 이야기하면 분석의 정확도가 올라가요:)'}
-          />
-        </View>
-
-        <View style={{alignItems:'center'}}>
-          <Image source={require('./assets/commit.png')} style={{width:200, height:200}}/>
-        </View>
-
-        <Pressable onPress={()=>{
-          database()
-          .ref(address)
-          .set({
-            날짜: today,
-            사분면: route.params.post,
-            언제: route.params.present,
-            지속적: route.params.ing,
-            detail: value,
-          })
-          navigation.navigate('test')
-        }}>
-          <View style={styles.detailCommit}>
-            <Text style={{color:'white', fontSize: 20,}}>제출할래요</Text>
-          </View>
-        </Pressable>
         
-      </View>
+          <View style={styles.detailView}>
+            <Text style={{fontWeight:'bold', fontSize:40}}>왜 그런 기분이 들어?</Text>
+            <UselessTextInput
+              multiline  
+              numberOfLines={4}
+              onChangeText={text => onChangeText(text)}
+              value={value}
+              style={{padding: 10, margin:10, color:'white', borderColor:'white', borderWidth:1,}}
+              backgroundColor={'lightgray'}
+              placeholder={'구체적인 활동을 이야기하면 분석의 정확도가 올라가요:)'}
+            />
+          </View>
+        
+
+          <View style={{alignItems:'center'}}>
+            <Image source={require('./assets/commit.png')} style={{width:200, height:200}}/>
+          </View>
+
+          <Pressable onPress={()=>{
+            database()
+            .ref(address)
+            .set({
+              날짜: today,
+              사분면: route.params.post,
+              언제: route.params.present,
+              지속적: route.params.ing,
+              detail: value,
+            })
+            navigation.navigate('test')
+          }}>
+            <View style={styles.detailCommit}>
+              <Text style={{color:'white', fontSize: 20,}}>제출할래요</Text>
+            </View>
+          </Pressable>
+          
+        </View>
+      </TouchableWithoutFeedback>
     )
   }
 
@@ -621,6 +631,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     backgroundColor:'white',
+    color:'black',
   },
   textIncircle:{
     width:50, 
